@@ -1,0 +1,33 @@
+<div>
+    <h1>Tour of heroes</h1>
+    <ul>
+      <li *ngFor="let lista of listas" (click)="onSelect(lista)">
+        <span class="badge"></span> {{lista.nombre}}
+      </li>
+    </ul>
+    </div>
+    
+    <!--Muestra los detalles del usuario seleccionado-->
+    <div *ngIf="id" [ngClass]="{'ocultar':show == false}">
+    <hr>
+      <p>Detalles de: {{id.nombre | uppercase}} </p>
+      
+      <div><span>Id: {{id.id}}<br>
+        Nombre: {{id.nombre}}<br>
+        Apellido: {{id.apellido}}<br>
+        Edad: {{id.edad}}<br
+        >Sexo: {{id.sexo}}
+        </span><br>
+
+        <hr>
+        <label>
+        Nombre:<input [(ngModel)]="id.nombre" placeholder="nombre"/><br>
+        Apellido:<input [(ngModel)]="id.apellido" placeholder="apellido"/><br>
+        Edad:<input [(ngModel)]="id.edad" placeholder="edad"/><br>
+        </label>
+      </div>
+    </div>
+    
+    <hr><br>
+    <button (click)="miEvento()"(click)=" show =! show"> ocultar  </button>
+    
